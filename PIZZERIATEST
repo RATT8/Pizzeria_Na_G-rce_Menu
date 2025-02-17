@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Restauracji</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .gallery img {
+            width: 200px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>Witaj w naszej restauracji!</h1>
+    <p><a href="menu.pdf" target="_blank">Pobierz nasze menu (PDF)</a></p>
+    
+    <div class="gallery">
+        <img src="przykladowe-zdjecie1.jpg" alt="Zdjęcie potrawy" onclick="showImage(this.src)">
+        <img src="przykladowe-zdjecie2.jpg" alt="Zdjęcie potrawy" onclick="showImage(this.src)">
+    </div>
+    
+    <div class="modal" id="modal" onclick="closeImage()">
+        <img id="modal-img">
+    </div>
+    
+    <script>
+        function showImage(src) {
+            document.getElementById("modal-img").src = src;
+            document.getElementById("modal").style.display = "block";
+        }
+        function closeImage() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
